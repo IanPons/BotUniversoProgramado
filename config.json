@@ -1,0 +1,6 @@
+{
+    "prefix": "!",
+    "cargosPrivilegiados": [
+        "ADMIN"
+    ]
+}
