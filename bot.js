@@ -12,7 +12,7 @@ bot.once('ready', () => {
 
 bot.on('message', message => {
     try {
-        if (message.author.bot) { return; }
+        if (message.author.bot) return;
 
         const input = message.content.split(config.prefix)[1];
         console.log(input);
@@ -25,11 +25,11 @@ bot.on('message', message => {
             message.reply(`Número de membros: ${message.guild.memberCount}\n Região do servidor: ${message.guild.region}`);
         }
 
-        if (command === 'cargos') {
-            if (args[1] === 'add') {
+        const cargos = {
+            add() {
                 let erros = [];
                 for (let i = 2; i < args.length; i++) {
-                    const role = message.guild.roles.cache.find(role => role.name === args[i]);
+                    const role = message.guild.roles.cache.find(role => role.name.toLowerCase() === args[i].toLowerCase());
                     const member = message.member;
 
                     if (!role || config.cargosPrivilegiados.includes(args[i])) {
@@ -43,12 +43,12 @@ bot.on('message', message => {
                     message.reply(`Os cargos a seguir não existem ou você não possui permissão para usa-los: \n ${erros}`);
                 }
                 else { message.react('✔️').catch(console.error); }
-            }
+            },
 
-            else if (args[1] === 'delete') {
+            delete() {
                 let erros = [];
                 for (let i = 2; i < args.length; i++) {
-                    const role = message.guild.roles.cache.find(role => role.name === args[i]);
+                    const role = message.guild.roles.cache.find(role => role.name.toLowerCase() === args[i].toLowerCase());
                     const member = message.member;
 
                     if (role) {
@@ -60,13 +60,14 @@ bot.on('message', message => {
                 }
                 if (erros.length) {
                     message.reply(`Os cargos a seguir não existem ou você não possui permissão para deleta-los: \n ${erros}`);
+                } else {
+                    message.react('✔️').catch(console.error);
                 }
-                else { message.react('✔️').catch(console.error); }
-            }
+            },
 
-            else if (args[1] === 'count') {
+            count() {
                 let count = 0;
-                const role = message.guild.roles.cache.find(role => role.name === args[2]);
+                const role = message.guild.roles.cache.find(role => role.name.toLowerCase() === args[2].toLowerCase());
 
                 if (!role) {
                     message.reply(`O cargo "${args[1]}" não foi encontrado.`);
@@ -80,8 +81,11 @@ bot.on('message', message => {
 
                 console.log("Respondeu");
                 message.reply(`Há ${count} ${(count > 1) ? 'membros' : 'membro'} com o cargo ${args[2]} `);
+            },
+        };
 
-            }
+        if (command === 'cargos') {
+            cargos[args[1]]();
         }
     } catch (err) {
         console.error(err);

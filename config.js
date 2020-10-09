@@ -1,6 +1,6 @@
 module.exports = {
     "prefix": "!",
     "cargosPrivilegiados": [
-        "ADMIN"
+        "adm"
     ]
 }
