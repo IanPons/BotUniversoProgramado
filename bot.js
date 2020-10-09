@@ -23,9 +23,9 @@ bot.on('message', message => {
         }
 
         if (command === 'help') {
-            message.reply(`Segue uma lista de todas as coisas legais que eu sei fazer: \n
-                            !serveInfo: Mostra o número de pessoas no server, e a região em que ele se encontra. \n
-                            !cargos: Gerencia os cargos do servidor (!cargos help para mais informações)`)
+            message.reply(`Segue uma lista de todas as coisas legais que eu sei fazer: 
+!serveInfo: Mostra o número de pessoas no server, e a região em que ele se encontra.
+!cargos: Gerencia os cargos do servidor (!cargos help para mais informações)`)
         }
 
         const cargos = {
@@ -85,9 +85,9 @@ bot.on('message', message => {
                 message.reply(`Há ${count} ${(count > 1) ? 'membros' : 'membro'} com o cargo ${args[2]} `);
             },
             help() {
-                message.reply(`!cargos add *nome do(s) cargo(s)* para atribuir um ou mais cargos. Exemplo: "!cargos add C++ Python\n
-                                !cargos delete *nome do(s) cargo(s)* para remover um ou mais cargos. Exemplo: "!cargos delete Java Typescript\n
-                                !cargos count *nome do cargo* para contar quantas pessoas possuem este cargo. Exemplo "!cargos count C++`);
+                message.reply(`!cargos add *nome do(s) cargo(s)* para atribuir um ou mais cargos. Exemplo: "!cargos add C++ Python"
+!cargos delete *nome do(s) cargo(s)* para remover um ou mais cargos. Exemplo: "!cargos delete Java Typescript"
+!cargos count *nome do cargo* para contar quantas pessoas possuem este cargo. Exemplo "!cargos count C++"`);
             }
         };
 
