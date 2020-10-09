@@ -21,7 +21,7 @@ bot.once('message', message => {
         message.reply(`Número de membros: ${message.guild.memberCount}\n Região do servidor: ${message.guild.region}`);
     }
 
-    if (command === 'cargos') {
+    else if (command === 'cargos') {
         if (args[1] === 'add') {
             let erros = [];
             for (let i = 2; i < args.length; i++) {
