@@ -15,11 +15,8 @@ bot.on('message', message => {
         if (message.author.bot) return;
 
         const input = message.content.split(config.prefix)[1];
-        console.log(input);
         const args = input.split(' ');
         const command = args[0].toLowerCase();
-
-        console.log(args, command);
 
         if (command === 'serverinfo') {
             message.reply(`Número de membros: ${message.guild.memberCount}\n Região do servidor: ${message.guild.region}`);
@@ -79,7 +76,6 @@ bot.on('message', message => {
                     if (m.roles.cache.find(r => r === role)) count++;
                 })
 
-                console.log("Respondeu");
                 message.reply(`Há ${count} ${(count > 1) ? 'membros' : 'membro'} com o cargo ${args[2]} `);
             },
         };
