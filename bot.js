@@ -12,6 +12,8 @@ bot.once('ready', () => {
 
 bot.on('message', message => {
     try {
+        if (message.author.bot) { return; }
+
         const input = message.content.split(config.prefix)[1];
         console.log(input);
         const args = input.split(' ');
