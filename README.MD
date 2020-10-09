@@ -10,9 +10,9 @@
 
 
 ## :computer: Commands
-- `!cargos add ${role_names}}`
-- `!cargos delete ${role_names}}`
-- `!cargos count ${role_name}}`
+- `!cargos add ${role_names}`
+- `!cargos delete ${role_names}`
+- `!cargos count ${role_name}`
 - `!cargos help`
 - `!serverinfo help`
 
