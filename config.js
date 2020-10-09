@@ -1,6 +1,7 @@
 module.exports = {
-    "prefix": "!",
-    "cargosPrivilegiados": [
+    prefix: "!",
+    cargosPrivilegiados: [
         "adm"
-    ]
+    ],
+    embedColor: "#2e86de",
 }
