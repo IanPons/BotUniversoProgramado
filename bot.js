@@ -6,6 +6,18 @@ const config = require('./config');
 const bot = new discord.Client();
 
 
+function embedMessage(data, channel) {
+    const { color, title, fields } = data;
+    const embedMessageVar = new discord.MessageEmbed()
+        .setColor(color)
+        .setTitle(title)
+        .addFields(
+            ...fields
+        )
+        .setTimestamp();
+    return channel.send(embedMessageVar);
+}
+
 bot.once('ready', () => {
     console.log('Online');
 })
@@ -19,13 +31,30 @@ bot.on('message', message => {
         const command = args[0].toLowerCase();
 
         if (command === 'serverinfo') {
-            message.reply(`Número de membros: ${message.guild.memberCount}\n Região do servidor: ${message.guild.region}`);
+            const data = {
+                color: "#2e86de",
+                title: "Server Info",
+                fields: [
+                    { name: 'Número de membros:', value: `${message.guild.memberCount}` },
+                    { name: 'Região do servidor:', value: `${message.guild.region}` },
+                ],
+            }
+
+            embedMessage(data, message.channel);
         }
 
         if (command === 'help') {
-            message.reply(`Segue uma lista de todas as coisas legais que eu sei fazer: 
-!serveInfo: Mostra o número de pessoas no server, e a região em que ele se encontra.
-!cargos: Gerencia os cargos do servidor (!cargos help para mais informações)`)
+
+            const data = {
+                color: "#2e86de",
+                title: "Help",
+                fields: [
+                    { name: '!serveInfo', value: 'Mostra o número de pessoas no server, e a região em que ele se encontra.' },
+                    { name: '!cargos', value: 'Gerencia os cargos do servidor (!cargos help para mais informações)' },
+                ],
+            }
+
+            embedMessage(data, message.channel);
         }
 
         const cargos = {
@@ -85,9 +114,17 @@ bot.on('message', message => {
                 message.reply(`Há ${count} ${(count > 1) ? 'membros' : 'membro'} com o cargo ${args[2]} `);
             },
             help() {
-                message.reply(`!cargos add *nome do(s) cargo(s)* para atribuir um ou mais cargos. Exemplo: "!cargos add C++ Python"
-!cargos delete *nome do(s) cargo(s)* para remover um ou mais cargos. Exemplo: "!cargos delete Java Typescript"
-!cargos count *nome do cargo* para contar quantas pessoas possuem este cargo. Exemplo "!cargos count C++"`);
+                const data = {
+                    color: "#2e86de",
+                    title: "Help !cargos",
+                    fields: [
+                        { name: '!cargos add *nome do(s) cargo(s)*', value: 'Para atribuir um ou mais cargos. Exemplo: "!cargos add C++ Python"' },
+                        { name: '!cargos delete *nome do(s) cargo(s)*', value: 'Para remover um ou mais cargos. Exemplo: "!cargos delete Java Typescript"' },
+                        { name: '!cargos count *nome do cargo*', value: 'Para contar quantas pessoas possuem este cargo. Exemplo "!cargos count C++"' },
+                    ],
+                }
+
+                embedMessage(data, message.channel);
             }
         };
 
