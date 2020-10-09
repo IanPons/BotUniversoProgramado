@@ -6,8 +6,7 @@ const config = require('./config');
 const bot = new discord.Client();
 
 
-function embedMessage(data, channel) {
-    const { color, title, fields } = data;
+function embedMessage({ color, title, fields }, channel) {
     const embedMessageVar = new discord.MessageEmbed()
         .setColor(color)
         .setTitle(title)
