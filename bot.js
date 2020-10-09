@@ -26,13 +26,15 @@ bot.on('message', message => {
     try {
         if (message.author.bot) return;
 
+        if (message.content[0] !== config.prefix) return;
+
         const input = message.content.split(config.prefix)[1];
         const args = input.split(' ');
         const command = args[0].toLowerCase();
 
         if (command === 'serverinfo') {
             const data = {
-                color: "#2e86de",
+                color: config.embedColor,
                 title: "Server Info",
                 fields: [
                     { name: 'Número de membros:', value: `${message.guild.memberCount}` },
@@ -46,7 +48,7 @@ bot.on('message', message => {
         if (command === 'help') {
 
             const data = {
-                color: "#2e86de",
+                color: config.embedColor,
                 title: "Help",
                 fields: [
                     { name: '!serveInfo', value: 'Mostra o número de pessoas no server, e a região em que ele se encontra.' },
@@ -115,7 +117,7 @@ bot.on('message', message => {
             },
             help() {
                 const data = {
-                    color: "#2e86de",
+                    color: config.embedColor,
                     title: "Help !cargos",
                     fields: [
                         { name: '!cargos add *nome do(s) cargo(s)*', value: 'Para atribuir um ou mais cargos. Exemplo: "!cargos add C++ Python"' },
