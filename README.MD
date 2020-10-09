@@ -1,6 +1,21 @@
 # Bot Universo Programado
 
-## Commands
-- !cargos add {role_name[]}
-- !cargos delete {role_name[]}
-- !cargos count {role_name}
+
+## :hand: Getting Started
+- Clone this repo
+- Install dependencies with `yarn` or `npm i`
+- Install nodemon globally with `npm i -g nodemon`
+- Start the bot with `yarn dev` or `npm run dev`
+- The bot will stay online when he shows "Online" on console
+
+
+## :computer: Commands
+- `!cargos add ${role_names}}`
+- `!cargos delete ${role_names}}`
+- `!cargos count ${role_name}}`
+- `!cargos help`
+- `!serverinfo help`
+
+---
+
+<p align="center">Made with :heart: by <strong>Ian Pons</strong> and <strong>Arthur Guedes</strong></p>
