@@ -16,6 +16,13 @@
 - `!cargos help`
 - `!serverinfo help`
 
+## :recycle: Contributing
+- Fork this repo
+- Make a branch with your feature
+- Describe your commit
+- Make a pull request
+
+
 ---
 
 <p align="center">Made with :heart: by <strong>Ian Pons</strong> and <strong>Arthur Guedes</strong></p>
