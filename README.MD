@@ -6,7 +6,7 @@
 - Install dependencies with `yarn` or `npm i`
 - Install nodemon globally with `npm i -g nodemon`
 - Start the bot with `yarn dev` or `npm run dev`
-- The bot will stay online when he shows "Online" on console
+- The bot will be online when it shows "Online" on console
 
 
 ## :computer: Commands
