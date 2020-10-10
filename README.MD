@@ -14,7 +14,7 @@
 - `!cargos delete ${role_names}`
 - `!cargos count ${role_name}`
 - `!cargos help`
-- `!serverinfo help`
+- `!serverinfo`
 
 ## :recycle: Contributing
 - Fork this repo
