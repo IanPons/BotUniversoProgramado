@@ -1,5 +1,8 @@
 # Bot Universo Programado
 
+## Demo
+![Bot1](readme/bot.png)
+![Bot2](readme/bot2.png)
 
 ## :hand: Getting Started
 - Clone this repo
