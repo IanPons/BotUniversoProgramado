@@ -1,4 +1,4 @@
-# Bot Universo Programado
+# Role Manager Bot
 
 ## Demo
 ![Bot1](readme/bot.png)
