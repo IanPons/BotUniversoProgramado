@@ -1,9 +1,5 @@
 # Role Manager Bot
 
-## Demo
-![Bot1](readme/bot.png)
-![Bot2](readme/bot2.png)
-
 ## :hand: Getting Started
 - Clone this repo
 - Install dependencies with `yarn` or `npm i`
