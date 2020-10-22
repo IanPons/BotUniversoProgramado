@@ -1,5 +1,4 @@
-# Bot Universo Programado
-
+# Role Manager Bot
 
 ## :hand: Getting Started
 - Clone this repo
@@ -14,7 +13,14 @@
 - `!cargos delete ${role_names}`
 - `!cargos count ${role_name}`
 - `!cargos help`
-- `!serverinfo help`
+- `!serverinfo`
+
+## :recycle: Contributing
+- Fork this repo
+- Make a branch with your feature
+- Describe your commit
+- Make a pull request
+
 
 ---
 
