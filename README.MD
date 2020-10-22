@@ -9,10 +9,10 @@
 
 
 ## :computer: Commands
-- `!cargos add ${role_names}`
-- `!cargos delete ${role_names}`
-- `!cargos count ${role_name}`
-- `!cargos help`
+- `!role add ${role_names}`
+- `!role delete ${role_names}`
+- `!role count ${role_name}`
+- `!role help`
 - `!serverinfo`
 
 ## :recycle: Contributing
