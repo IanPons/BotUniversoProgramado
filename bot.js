@@ -36,8 +36,8 @@ bot.on('message', message => {
                 color: config.embedColor,
                 title: "Server Info",
                 fields: [
-                    { name: 'Número de membros:', value: `${message.guild.memberCount}` },
-                    { name: 'Região do servidor:', value: `${message.guild.region}` },
+                    { name: 'Number of members:', value: `${message.guild.memberCount}` },
+                    { name: 'Server region:', value: `${message.guild.region}` },
                 ],
             }
 
@@ -50,8 +50,9 @@ bot.on('message', message => {
                 color: config.embedColor,
                 title: "Help",
                 fields: [
-                    { name: '!serveInfo', value: 'Mostra o número de pessoas no server, e a região em que ele se encontra.' },
-                    { name: '!cargos', value: 'Gerencia os cargos do servidor (!cargos help para mais informações)' },
+                    // Gerencia os cargos do servidor (!cargos help para mais informações)
+                    { name: '!serveInfo', value: 'Show the number of users in this server and the region' },
+                    { name: '!role', value: 'Manage server roles (!role help for more information)' },
                 ],
             }
 
@@ -73,7 +74,8 @@ bot.on('message', message => {
                     }
                 }
                 if (erros.length) {
-                    message.reply(`Os cargos a seguir não existem ou você não possui permissão para usa-los: \n ${erros}`);
+                    // Os cargos a seguir não existem ou você não possui permissão para usa-los:
+                    message.reply(`The following roles doesn't exist or you don't have permission to have them: \n ${erros}`);
                 }
                 else { message.react('✔️').catch(console.error); }
             },
@@ -92,7 +94,7 @@ bot.on('message', message => {
                     }
                 }
                 if (erros.length) {
-                    message.reply(`Os cargos a seguir não existem ou você não possui permissão para deleta-los: \n ${erros}`);
+                    message.reply(`The following roles doesn't exist or you don't have permission to use them: \n ${erros}`);
                 } else {
                     message.react('✔️').catch(console.error);
                 }
@@ -103,7 +105,7 @@ bot.on('message', message => {
                 const role = message.guild.roles.cache.find(role => role.name.toLowerCase() === args[2].toLowerCase());
 
                 if (!role) {
-                    message.reply(`O cargo "${args[1]}" não foi encontrado.`);
+                    message.reply(`Role: "${args[1]}" not found`);
                     return
                 }
                 const members = message.guild.members.cache;
@@ -112,16 +114,16 @@ bot.on('message', message => {
                     if (m.roles.cache.find(r => r === role)) count++;
                 })
 
-                message.reply(`Há ${count} ${(count > 1) ? 'membros' : 'membro'} com o cargo ${args[2]} `);
+                message.reply(`Há ${count} ${(count > 1) ? 'members' : 'member'} with the role ${args[2]} `);
             },
             help() {
                 const data = {
                     color: config.embedColor,
-                    title: "Help !cargos",
+                    title: "Help !role",
                     fields: [
-                        { name: '!cargos add *nome do(s) cargo(s)*', value: 'Para atribuir um ou mais cargos. Exemplo: "!cargos add C++ Python"' },
-                        { name: '!cargos delete *nome do(s) cargo(s)*', value: 'Para remover um ou mais cargos. Exemplo: "!cargos delete Java Typescript"' },
-                        { name: '!cargos count *nome do cargo*', value: 'Para contar quantas pessoas possuem este cargo. Exemplo "!cargos count C++"' },
+                        { name: '!role add *role name(s)*', value: 'Get one or more roles. Example: "!role add C++ Python"' },
+                        { name: '!role delete *role name(s)*', value: 'Remove one or more roles. Exemple: "!role delete Java Typescript"' },
+                        { name: '!role count *role name*', value: 'Count how many people have this role. Exemple "!cargos count C++"' },
                     ],
                 }
 
@@ -129,8 +131,11 @@ bot.on('message', message => {
             }
         };
 
-        if (command === 'cargos') {
-            cargos[args[1]]();
+        if (command === 'role') {
+            if (args.length <= 1)
+                cargos.help()
+            else
+                cargos[args[1]]();
         }
 
     } catch (err) {
