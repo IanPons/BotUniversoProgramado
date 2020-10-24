@@ -14,6 +14,7 @@
 - `!role count ${role_name}`
 - `!role help`
 - `!serverinfo`
+- `!help`
 
 ## :recycle: Contributing
 - Fork this repo
